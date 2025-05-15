@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import ApiError from '../error/ApiError.js';
-import {User} from '../models/user.js';
+import {Users} from '../models/user.js';
 
 
 export const registration = async (req, res, next) => {
@@ -13,7 +13,7 @@ export const registration = async (req, res, next) => {
    }
 
 
-   const candidate = await User.findOne({ where: { email } });
+   const candidate = await Users.findOne({ where: { email } });
    if (candidate) {
      return next(ApiError.badRequest('Пользователь с таким email уже существует'));
    }
@@ -25,7 +25,7 @@ export const registration = async (req, res, next) => {
    const hashPassword = await bcrypt.hash(password, 5);
 
 
-   const user = await User.create({
+   const user = await Users.create({
      email,
      userType,
      username,

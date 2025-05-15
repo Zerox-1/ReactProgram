@@ -4,6 +4,6 @@
 
     const router=new Router();
 
-    router.post('/register', upload.single('avatar'),registartion);
+    router.post('/register', upload.single('avatar'),registration);
 
     export default router;
