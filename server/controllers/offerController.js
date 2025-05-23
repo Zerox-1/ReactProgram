@@ -1,4 +1,5 @@
 import { adaptOfferToClient,adaptFullOfferToClient } from "../adapters/offerAdapter.js";
+import ApiError from "../error/ApiError.js";
 import {Offer} from "../models/offer.js";
 import { Users } from "../models/user.js";
 
@@ -94,5 +95,40 @@ export async function getFullOffer(req, res, next) {
     res.status(200).json(adaptedOffer);
   } catch (error) {
     next(ApiError.internal('Ошибка при получении предложения: ' + error.message));
+  }
+}
+
+
+export async function getFavoriteOffers(req, res, next) {
+  try {
+    const id = req.params.id;
+    const offer = await Offer.findAll({
+      where: {
+        isFavorite: true
+      }
+    });
+
+    if (!offer) {
+      return next(ApiError.notFound('Предложение не найдено'));
+    }
+
+    res.status(200).json(offer);
+  } catch (error) {
+    next(ApiError.internal('Ошибка при получении предложения: ' + error.message));
+  }
+}
+
+export const toggleFavorite= async (req,res,next)=>{
+  try{
+    const {offerId,status}=req.params;
+    const offer=await Offer.findByPk(offerId);
+    if(!offer){
+      return next(ApiError.notFound('Предложение не найдено'));
+    }
+    offer.isFavorite=status==='1';
+    await offer.save();
+    res.json(offer);
+  }catch(error){
+    next(ApiError.internal('Ошибка при обновлении статуса избранного'));
   }
 }
