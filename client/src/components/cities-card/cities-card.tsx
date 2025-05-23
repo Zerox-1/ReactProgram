@@ -16,9 +16,10 @@ function CitiesCard({id,title,type,price,previewImage,isPremium,rating}:CitiesCa
     const [,setOfferId]=useState('');
     return(
         <article className="cities__card place-card" onMouseOver={()=>setOfferId(id)} onMouseOut={()=>setOfferId('')}>
-            <div className="place-card__mark">
-                <span>{isPremium}</span>
-            </div>
+            {isPremium?(
+                <div className="place-card__mark">
+                    <span>Premium</span>
+                </div>):null}
             <div className="cities__image-wrapper place-card__image-wrapper">
                 <Link to={`${AppRoute.Offer}/${id}`}>
                     <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image"/>
