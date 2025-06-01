@@ -35,7 +35,8 @@ const offers: FullOffer[] = [
     isFavorite: true,
     rating: 4.9,
     bedrooms: 2,
-    maxAdults: 3
+    maxAdults: 3,
+    previewImage:'../../img/20.png'
   },
   {
     id: 'a1b2c3d4-e5f6-7890-abcd-1234567890ef',
@@ -67,7 +68,8 @@ const offers: FullOffer[] = [
     isFavorite: false,
     rating: 4.5,
     bedrooms: 1,
-    maxAdults: 2
+    maxAdults: 2,
+    previewImage:'../../img/1.png',
   },
   {
     id: 'def12345-6789-abcd-ef01-234567890abc',
@@ -99,7 +101,8 @@ const offers: FullOffer[] = [
     isFavorite: true,
     rating: 4.1,
     bedrooms: 1,
-    maxAdults: 1
+    maxAdults: 1,
+    previewImage:'../../img/3.png',
   },
   {
     id: '0987abcd-1234-5678-efgh-90123456ijkl',
@@ -131,7 +134,8 @@ const offers: FullOffer[] = [
     isFavorite: false,
     rating: 4.8,
     bedrooms: 3,
-    maxAdults: 5
+    maxAdults: 5,
+    previewImage:'../../img/4.png',
   }
 ];
 

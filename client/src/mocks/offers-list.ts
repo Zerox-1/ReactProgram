@@ -34,14 +34,14 @@ export const offersList: OffersList[] = [
     city: {
       name: 'Amsterdam',
       location: {
-        latitude: 52.3676,
-        longitude: 4.9041,
+        latitude: 52.3909553943508,
+        longitude: 4.85309666406198,
         zoom: 12
       }
     },
     location: {
-      latitude: 52.370216,
-      longitude: 4.895168,
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
       zoom: 14
     },
     

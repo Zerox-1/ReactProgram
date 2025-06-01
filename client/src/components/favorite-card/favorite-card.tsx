@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import {AppRoute} from "../../const.js";
 
-type FavoriteCardProps={
+export type FavoriteCardProps={
     id:string;
     title:string;
     type:string;

@@ -1,12 +1,26 @@
 import { CitiesCardList } from "../../components/cities-card-list/cities-card-list.js";
 import { Logo } from "../../components/logo/logo.js";
+import Map from "../../components/map/map.js";
 import { OffersList } from "../../types/offer.js";
-import { offersList } from './../../mocks/offers-list';
+import { CITY,POINTS } from './../../mocks/map';
+import List from "../../components/map/list";
+import { Point } from "../../types/map.js";
+import { useState } from "react";
+import {UniversalOfferCardProps } from "../../components/place-card/place-card.js";
 type MainPageProps={
   rentalOffersCount:number;
-  offersList:OffersList[];
+  offersList:UniversalOfferCardProps[];
 }
 function MainPage({rentalOffersCount,offersList}:MainPageProps) {
+
+  const [selectedPoint, setSelectedPoint] = useState<Point | null>(null);
+
+  const handleListItemHover = (listItemName: string) => {
+    const currentPoint = POINTS.find((point) =>
+      point.title === listItemName
+    ) || null;
+    setSelectedPoint(currentPoint);
+  };
     return(
         <div className="page page--gray page--main">
       <header className="header">
@@ -99,7 +113,12 @@ function MainPage({rentalOffersCount,offersList}:MainPageProps) {
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                <List points={POINTS} onListItemHover={handleListItemHover}/>
+                <Map city={CITY}
+          points={POINTS}
+          selectedPoint={selectedPoint}></Map>
+              </section>
             </div>
           </div>
         </div>
