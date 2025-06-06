@@ -3,7 +3,7 @@ type OfferLocation={
     longitude:number;
     zoom:number;
 };
-type CityOffer={
+export type CityOffer={
     name:string;
     location:OfferLocation;
 };

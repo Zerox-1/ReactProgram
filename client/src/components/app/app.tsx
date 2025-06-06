@@ -8,19 +8,20 @@ import {AppRoute,AuthorizationStatus} from "../../const.js";
 import {PrivateRoute} from "../private-route/private-route";
 import { FullOffer} from "../../types/offer";
 import { OffersList } from "../../types/offer";
+import { Review } from "../../types/review";
 
 type AppMainPageProps={
-    rentalOffersCount:number;
     offersList:OffersList[];
     offers:FullOffer[];
+    reviews:Review[];
 }
-function App({rentalOffersCount,offersList,offers}:AppMainPageProps):JSX.Element{
+function App({offersList,offers,reviews}:AppMainPageProps):JSX.Element{
     return(
         <BrowserRouter>
         <Routes>
             <Route
             path={AppRoute.Main}
-            element={<MainPage rentalOffersCount={rentalOffersCount} offersList={offersList}/>}/>
+            element={<MainPage offersList={offersList}/>}/>
             <Route
             path={AppRoute.Login}
             element={<Login/>}/>

@@ -56,7 +56,7 @@ export const offersList: OffersList[] = [
     price: 90,
     previewImage: 'img/3.png',
     city: {
-      name: 'Vienna',
+      name: 'Hamburg',
       location: {
         latitude: 48.2082,
         longitude: 16.3738,
@@ -79,7 +79,7 @@ export const offersList: OffersList[] = [
     price: 310,
     previewImage: 'img/4.png',
     city: {
-      name: 'Barcelona',
+      name: 'Hamburg',
       location: {
         latitude: 41.3851,
         longitude: 2.1734,

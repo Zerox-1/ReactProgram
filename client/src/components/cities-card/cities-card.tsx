@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import {AppRoute} from "../../const.js";
 
-type CitiesCardProps={
+export type CitiesCardProps={
     id:string;
     title:string;
     type:string;
