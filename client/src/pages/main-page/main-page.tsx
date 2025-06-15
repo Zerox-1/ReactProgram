@@ -91,11 +91,6 @@ function MainPage() {
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                <List
-                  points={selectedCityOffersPoint}
-                  onListItemHoverEnter={handlePointListItemHoverEnter}
-                  onListItemHoverLeave={handlePointListItemHoverLeave}
-                />
                 <Map
                   city={selectedCityPoint}
                   points={selectedCityOffersPoint}
