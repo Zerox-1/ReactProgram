@@ -79,16 +79,15 @@ const offers: FullOffer[] = [
     price: 90,
     images: ['../../img/3.png', '../../img/17.png', '../../img/16.png', '../../img/15.png', '../../img/2.png', '../../img/7.png'],
     city: {
-      name: 'Vienna',
+      name: 'Hamburg',
       location: {
-        latitude: 48.2082,
-        longitude: 16.3738,
+        latitude: 53.5511, 
+        longitude: 9.9937,
         zoom: 13
       }
     },
     location: {
-      latitude: 48.210033,
-      longitude: 16.363449,
+      latitude: 53.5512, longitude: 9.9938,
       zoom: 15
     },
     goods: ['Wi-Fi', 'Fridge', 'Towels'],
@@ -112,16 +111,14 @@ const offers: FullOffer[] = [
     price: 310,
     images: ['../../img/4.png', '../../img/17.png', '../../img/16.png', '../../img/15.png', '../../img/2.png', '../../img/7.png'],
     city: {
-      name: 'Barcelona',
+      name: 'Hamburg',
       location: {
-        latitude: 41.3851,
-        longitude: 2.1734,
+        latitude: 53.5511, longitude: 9.9937,
         zoom: 12
       }
     },
     location: {
-      latitude: 41.3867,
-      longitude: 2.1909,
+      latitude: 53.5720, longitude: 9.9386,
       zoom: 14
     },
     goods: ['Air conditioning', 'Wi-Fi', 'Kitchen', 'Towels', 'Washer'],

@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import {AppRoute} from "../../const.js";
 type OfferCardProps = {
     offer: FullOffer;
+    onListItemHoverEnter: (id: string) => void;
+    onListItemHoverLeave: () => void;
   }
 ;
 
-export function OfferCard({offer}:OfferCardProps){
+export function OfferCard({offer, onListItemHoverEnter, onListItemHoverLeave}:OfferCardProps){
       const [,setOfferId]=useState('');
   return(
-    <article className="near-places__card place-card" onMouseOver={()=>setOfferId(offer.id)} onMouseOut={()=>setOfferId('')}>
+    <article className="near-places__card place-card" onMouseOver={()=>setOfferId(offer.id)} onMouseOut={()=>setOfferId('') } onMouseEnter={() => onListItemHoverEnter(offer.id)} onMouseLeave={onListItemHoverLeave}>
         {offer.isPremium?(
           <div className="place-card__mark">
               <span>Premium</span>

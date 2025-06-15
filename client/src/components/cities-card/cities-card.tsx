@@ -10,12 +10,14 @@ export type CitiesCardProps={
     isPremium:boolean;
     previewImage:string;
     rating:number;
+    onListItemHoverEnter: (id: string) => void;
+    onListItemHoverLeave: () => void;
 }
 
-function CitiesCard({id,title,type,price,previewImage,isPremium,rating}:CitiesCardProps){
+function CitiesCard({id,title,type,price,previewImage,isPremium,rating, onListItemHoverEnter, onListItemHoverLeave}:CitiesCardProps){
     const [,setOfferId]=useState('');
     return(
-        <article className="cities__card place-card" onMouseOver={()=>setOfferId(id)} onMouseOut={()=>setOfferId('')}>
+        <article className="cities__card place-card" onMouseOver={()=>setOfferId(id)} onMouseOut={()=>setOfferId('') } onMouseEnter={() => onListItemHoverEnter(id)} onMouseLeave={onListItemHoverLeave}>
             {isPremium?(
                 <div className="place-card__mark">
                     <span>Premium</span>

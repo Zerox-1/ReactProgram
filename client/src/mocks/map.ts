@@ -1,18 +1,27 @@
 export const POINTS = [
     {
-      title: 'Саундвью',
+      title: 'Paris',
       lat: 52.3909553943508,
       lng:  4.85309666406198,
     }, {
-      title: 'Ферри Поинт',
+      title: 'Cologne',
       lat: 52.3609553943508,
       lng: 4.85309666406198,
     }, {
-      title: 'Бронкс',
+      title: 'Brussels',
       lat: 52.3909553943508,
       lng: 4.929309666406198,
     }, {
-      title: 'Инвуд-Хилл',
+      title: 'Amsterdam',
+      lat: 52.3809553943508,
+      lng: 4.939309666406198,
+    }, {
+      title: 'Hamburg',
+      lat: 52.3809553943508,
+      lng: 4.939309666406198,
+    }
+    , {
+      title: 'Dusseldorf',
       lat: 52.3809553943508,
       lng: 4.939309666406198,
     },

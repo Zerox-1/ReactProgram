@@ -58,14 +58,13 @@ export const offersList: OffersList[] = [
     city: {
       name: 'Hamburg',
       location: {
-        latitude: 48.2082,
-        longitude: 16.3738,
+        latitude: 53.5511, 
+        longitude: 9.9937,
         zoom: 13
       }
     },
     location: {
-      latitude: 48.210033,
-      longitude: 16.363449,
+      latitude: 53.5512, longitude: 9.9938,
       zoom: 15
     },
     isPremium: false,
@@ -81,14 +80,12 @@ export const offersList: OffersList[] = [
     city: {
       name: 'Hamburg',
       location: {
-        latitude: 41.3851,
-        longitude: 2.1734,
+        latitude: 53.5511, longitude: 9.9937,
         zoom: 12
       }
     },
     location: {
-      latitude: 41.3867,
-      longitude: 2.1909,
+      latitude: 53.5720, longitude: 9.9386,
       zoom: 14
     },
     isPremium: true,

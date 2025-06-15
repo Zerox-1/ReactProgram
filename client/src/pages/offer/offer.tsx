@@ -8,9 +8,11 @@ import { reviewsMock } from '../../mocks/reviews';
 import { CITY,POINTS } from './../../mocks/map';
 import List from "../../components/map/list";
 import { useState } from "react";
-import { Point } from "../../types/map";
+import { City, Point } from "../../types/map.js";
 import Map from '../../components/map/map';
 import { OfferCardList } from './../../components/offer-card-list/offer-card-list';
+
+import { getOffersByCity, sortOffersByType, getOffersByCityPoints } from '../../utils.js';
 
 type OfferProps={
   offers:FullOffer[];
@@ -20,16 +22,28 @@ function Offer({offers}:OfferProps){
   
     const [selectedPoint, setSelectedPoint] = useState<Point | null>(null);
   
-    const handleListItemHover = (listItemName: string) => {
-      const currentPoint = POINTS.find((point) =>
-        point.title === listItemName
+    const handlePointListItemHoverEnter = (listItemName: string) => {
+      const currentPoint = selectedCityOffersPoint.find((point) =>
+        point.id === listItemName
       ) || null;
       setSelectedPoint(currentPoint);
+    };
+  
+    const handlePointListItemHoverLeave = () => {
+      setSelectedPoint(null);
     };
   const offer=offers.find((item)=>item.id===params.id);
   if(!offer){
     return <C404></C404>;
   }
+  const selectedCityPoint: City = {
+      lat: offer.city.location.latitude,
+      lng: offer.city.location.longitude,
+      zoom: offer.city.location.zoom
+    };
+    
+      const selectedCityOffers = getOffersByCity(offer.city.name, offers);
+      const selectedCityOffersPoint = getOffersByCityPoints(selectedCityOffers);
     return(
     <div className="page">
       <header className="header">
@@ -151,16 +165,18 @@ function Offer({offers}:OfferProps){
             </div>
           </div>
           <section className="offer__map map">
-          <List points={POINTS} onListItemHover={handleListItemHover}/>
-                <Map city={CITY}
-          points={POINTS}
-          selectedPoint={selectedPoint}></Map>
+          {/* <List points={POINTS} onListItemHover={handleListItemHover}/> */}
+                <Map
+                  city={selectedCityPoint}
+                  points={selectedCityOffersPoint}
+                  selectedPoint={selectedPoint}
+                />
           </section>
         </section>
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <OfferCardList offers={offers}/>
+            <OfferCardList offers={selectedCityOffers} onListItemHoverEnter ={handlePointListItemHoverEnter} onListItemHoverLeave={handlePointListItemHoverLeave}/>
           </section>
         </div>
       </main>
